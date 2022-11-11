@@ -4,10 +4,191 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgba(0,0,0,0.5);
+        }
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: wrap;
+        }
+        .box{
+            width: 33.333%;
+            border: 5px solid rgba(0,0,0,0.4);
+            background: rgba(255,255,255,0.7);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .box img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+            font-family: cursive;
+            margin: 30px 0;
+            color: rgba(255,255,255,0.7);
+        }
+        .modal-cont{
+            width: 100vw;
+            height: 100vh;
+            background: rgb(0,0,0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .5s;
+            pointer-events: auto;
+        }
+        .modal{
+            width: 100%;
+            height: 100%;
+        }
+        .modal .slide{
+            display: flex;
+            flex-flow: column wrap;
+            width: 100%;
+            height: 100%;
+            transition: .5s;
+            opacity: 0;
+        }
+        .modal .img-box{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+        }
+        .img-box img{
+            width: 60%;
+            height: auto;
+            max-height: 98vh;
+        }
+        .modal button{
+            position: absolute;
+            font-size: 50px;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            transition: .2s;
+            z-index: 10;
+            border: none;
+        }
+        .modal .ind{
+            top: 0;
+            left: 0;
+        }
+        .modal .prev, .modal .next{
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .modal .next, .close{
+            right: 0;
+        }
+        .modal .prev{
+            padding: 30px 15px;
+            padding-right: 30px;
+        }
+        .modal .prev:hover{
+            padding: 5px;
+            padding-right: 50px;
+        }
+        .modal .next{
+            padding: 30px 15px;
+            padding-left: 30px;
+        }
+        .modal .next:hover{
+            padding: 5px;
+            padding-left: 50px;
+        }
+        .modal .close:hover{
+            transform: scale(1.2);
+        }
+        .modal-cont.hide{
+            transform: scale(.6);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello Github</h1>
-    <h2>worva</h2>
+    <div class="modal-cont hide">
+        <div class="modal">
+            <button class="prev" type="button"><i class="bi bi-arrow-left"></i></button>
+            <button class="next" type="button"><i class="bi bi-arrow-right"></i></button>
+            <button class="close" type="button"><i class="bi bi-x"></i></button>
+            <button class="ind" type="button"></button>
+            <div class="slide">
+                <div class="img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZayZBWMp-T87t2piO5v6wBar6S8QKBgdEyHiwl4B5&s" alt="img"></div>
+                <div class="img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThXjOit4F1QDhgvegi5AWp6tj74vPf-taanpUbXVbaMwHBETaFJKwWywBa6MCbAiCocX8&usqp=CAU" alt="img"></div>
+                <div class="img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCy5OhrBNUjRELpQ00ZhmGIX22ElURJSv2cE-W-M0mcSN_mRwKuwkBNyLToIo8Dh7jIgY&usqp=CAU" alt="img"></div>
+                <div class="img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE_HQQhSZrmx4QxDKME2HY7NCQKcgMBfMHpg&usqp=CAU" alt="img"></div>
+                <div class="img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1PczE6q3gji6-2WKS_9F50h8QN1OkS_tHjg&usqp=CAU" alt="img"></div>
+                <div class="img-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZa6o56QGbSfDqKO77QK-ZrzUxEaKTMHOraQ&usqp=CAU" alt="img"></div>
+            </div>
+        </div>
+    </div>
+    <h1>Light Gallery</h1>
+    <div class="container">
+        <div class="box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZayZBWMp-T87t2piO5v6wBar6S8QKBgdEyHiwl4B5&s" alt="img"></div>
+        <div class="box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThXjOit4F1QDhgvegi5AWp6tj74vPf-taanpUbXVbaMwHBETaFJKwWywBa6MCbAiCocX8&usqp=CAU" alt="img"></div>
+        <div class="box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCy5OhrBNUjRELpQ00ZhmGIX22ElURJSv2cE-W-M0mcSN_mRwKuwkBNyLToIo8Dh7jIgY&usqp=CAU" alt="img"></div>
+        <div class="box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE_HQQhSZrmx4QxDKME2HY7NCQKcgMBfMHpg&usqp=CAU" alt="img"></div>
+        <div class="box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1PczE6q3gji6-2WKS_9F50h8QN1OkS_tHjg&usqp=CAU" alt="img"></div>
+        <div class="box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZa6o56QGbSfDqKO77QK-ZrzUxEaKTMHOraQ&usqp=CAU" alt="img"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            let a;
+            $('.next').click(function(){
+                a++;
+                a== $('.img-box').length -1 ? $('.next').attr("disabled","") : a;
+                a== $('.img-box').length ? a=$('.img-box').length -1 : a;
+                $('.slide').css('transform',`translateX(-${a*100}%)`);
+                $('.prev').removeAttr("disabled");
+                $('.ind').text(`${a+1}/${$('.box').length}`)
+            })
+            $('.prev').click(function(){
+                a--;
+                a ==0 ? $('.prev').attr("disabled","") : a; 
+                a == -1 ? a=0 : a;
+                $('.slide').css('transform',`translateX(-${a*100}%)`);
+                $('.next').removeAttr("disabled");
+                $('.ind').text(`${a+1}/${$('.box').length}`)
+            })
+            $('.close').click(function(){
+                $('.modal-cont').addClass("hide")
+                $('.slide').css("opacity","0")
+            });
+            $('.box').each((e,i)=>{
+                $(i).click('click',()=>{
+                    $('.modal-cont').removeClass("hide")
+                    setTimeout(()=>{
+                        $('.slide').css("opacity","1")
+                    },400)
+                    a=e;
+                    $('.slide').css('transform',`translateX(-${e*100}%)`);
+                    $('.ind').text(`${a+1}/${$('.box').length}`)
+                })
+            });
+        })
+    </script>
 </body>
 </html>
